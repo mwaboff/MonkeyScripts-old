@@ -17,6 +17,7 @@
 //= require backbone
 //= require bootstrap
 //= require monkey_scripts
+//= require serializeJSON
 //= require_tree .
 //= require_tree ../templates
 //= require_tree ./utils
@@ -27,4 +28,44 @@
 //= require_tree ../templates
 
 (function(){
+  var MonkeyScripts = window.MonkeyScripts = (window.MonkeyScripts || {});
+  
+  MonkeyScripts.loginFormAttachHandler = function() {
+    $('#signup-form,#login-form').on('submit', handleLoginSubmission);
+    $('#logout-button').on('click', handleLogOut);
+  }
+  
+  var handleLogOut = function(event) {
+    $.ajax({
+      type: "DELETE",
+      url: "/api/session",
+      success: function() {
+        location.reload();
+      }
+    });
+  }
+  
+  var handleLoginSubmission = function(event) {
+    event.preventDefault();
+    var $theForm = $(event.target);
+    var targetLocation = $theForm.attr('action');
+    var submissionData = $theForm.serializeJSON();
+    $.ajax({
+      type: "POST",
+      url: targetLocation,
+      data: submissionData,
+      success: function() {
+        location.reload();
+      },
+      error: function(response) {
+        console.log(response.responseText);
+        $errMsg = $theForm.find('.form-alert');
+        $errMsg.addClass('alert alert-danger').text(response.responseText);
+      }
+    });
+  }
 })();
+
+$(function(){
+  MonkeyScripts.loginFormAttachHandler();
+})

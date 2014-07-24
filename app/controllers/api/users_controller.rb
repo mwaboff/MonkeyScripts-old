@@ -8,7 +8,8 @@ module Api
         login!(newbie)
         render json: newbie
       else
-        render json: newbie.errors.full_messages, status: :unprocessable_entity
+        render json: newbie.errors.full_messages.join('. '),
+               status: :unprocessable_entity
       end
     end
   
@@ -17,7 +18,8 @@ module Api
         current_user.save!
         render json: current_user
       else
-        render json: current_user.errors.full_messages, status: :unprocessable_entity
+        render json: current_user.errors.full_messages.join('. '),
+               status: :unprocessable_entity
       end
     end
     

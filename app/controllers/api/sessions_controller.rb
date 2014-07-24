@@ -8,8 +8,7 @@ module Api
         login!(attempted_user)
         render json: attempted_user
       else
-        flash.now[:errors] = ["Email or Password is incorrect."]
-        render json: flash.errors, status: :unprocessable_entity
+        render json: "Email or Password is incorrect.", status: :unprocessable_entity
       end
     end
   

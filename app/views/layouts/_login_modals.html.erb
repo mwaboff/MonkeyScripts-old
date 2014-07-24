@@ -7,7 +7,9 @@
       </div>
       
       <div class="modal-body">
+        
         <form action="<%= api_session_url %>" id="login-form" method="POST">
+          <div class="form-alert"></div>
           <input type="hidden" 
                  name="authenticity_token" 
                  value="<%= form_authenticity_token %>">
@@ -17,7 +19,8 @@
             <input type="text"
                    class="form-control"
                    id="email"
-                   name="session[email]">
+                   name="session[email]"
+                   tabindex="1">
           </div>
           
           <div class="form-group">
@@ -25,7 +28,8 @@
             <input type="password" 
                    class="form-control"
                    id="password"
-                   name="session[password]">
+                   name="session[password]"
+                   tabindex="2">
           </div>
           
           <input type="submit" class="btn-primary" value="Login">
@@ -45,6 +49,7 @@
       <div class="modal-body">
         
         <form action="<%= api_users_url %>" id="signup-form" method="POST">
+          <div class="form-alert"></div>
           <input type="hidden"
                  name="authenticity_token"
                  value="<%= form_authenticity_token %>">
@@ -54,7 +59,8 @@
             <input type="text" 
                    class="form-control"
                    id="username"
-                   name="user[username]">
+                   name="user[username]"
+                   tabindex="1">
           </div>
           
           <div class="form-group">
@@ -62,7 +68,8 @@
             <input type="text"
                    class="form-control"
                    id="email"
-                   name="user[email]">
+                   name="user[email]"
+                   tabindex="2">
           </div>
           
           <div class="form-group">
@@ -70,7 +77,8 @@
             <input type="password"
                    class="form-control"
                    id="password"
-                   name="user[password]">
+                   name="user[password]"
+                   tabindex="3">
           </div>
           <input type="submit" class="btn-primary" value="Sign Up">
         </form>
