@@ -1,15 +1,34 @@
 <div class="row" id="script-info">
   <div class="col-md-8 col-md-offset-1">
     <div class="row" id="script-info">
-      <h3><%= thisScript.escape('title') %></h3>
-      <div id="author-info">
+      <span id="script-title">
+        <%= thisScript.escape('title') %>
+      </span>
+      <span id="script-authoring">
         by <%= thisScript.escape('user_id') %>
-      </div>
+      </span>
     </div>
-    <div class="row" id="script-desc">
-      <h3>Description:</h3>
-      <%= thisScript.escape('description') %>
+    <div class="row" id="script-nav">
+      <ul class="script-nav nav navbar-nav">
+        <li class="active">
+          <a class="script-link" href="#/script/<%= thisScript.id %>">
+            About
+          </a>
+        </li>
+        <li>
+          <a class="script-link" href="#/script/<%= thisScript.id %>/source">
+            Source
+          </a>
+        </li>
+        <li>
+          <a href="/install/<%= thisScript.id %>.user.js" target="_blank">
+            Download
+          </a>
+        </li>
+      </ul>
     </div>
+    
+    <div class="row" id="script-stuff"></div>
 
     <div class="row" id="comments">
     </div>

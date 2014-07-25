@@ -1,19 +1,18 @@
 MonkeyScripts.Routers.Router = Backbone.Router.extend({
     routes: {
         "script/new": "renderScriptCreate",
-        "script/:id": "renderScriptShow"
+        "script/:id(/:frag)": "renderScriptShow"
     },
 
     initialize: function(options) {
         this.$target = options.$target;
     },
 
-    renderScriptShow: function(scriptID) {
-        console.log('FSJKDLJKFLSDJFKLSDJFKLSD');
-        console.log(scriptID);
+    renderScriptShow: function(scriptID, frag) {
         var tempScript = new MonkeyScripts.Models.Script({id: scriptID});
         tempScript.fetch();
-        var newView = new MonkeyScripts.Views.ScriptShow({model: tempScript});
+        var newView = new MonkeyScripts.Views.ScriptShow({model: tempScript,
+                                                          fragmen: frag});
         this._swapview(newView);
     },
 
@@ -27,4 +26,4 @@ MonkeyScripts.Routers.Router = Backbone.Router.extend({
         this.currentView = newView;
         this.$target.html(this.currentView.render().$el);
     }
-});
+}); 
