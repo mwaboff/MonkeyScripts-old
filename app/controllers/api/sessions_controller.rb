@@ -1,7 +1,6 @@
 module Api
   class SessionsController < ApplicationController
     def create
-      puts 'IN SESSIONS CREATE'
       attempted_user = User.find_by_credentials(session_params[:email], 
                                                 session_params[:password])
       if attempted_user

@@ -4,5 +4,11 @@ window.MonkeyScripts = {
   Views: {},
   Routers: {},
   initialize: function() {
+    new MonkeyScripts.Routers.Router({$target: $('#main')});
+    Backbone.history.start();
   }
 };
+
+$(function(){
+  MonkeyScripts.initialize();
+});

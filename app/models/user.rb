@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   validates :encrypted_pass, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
   validates :session_token, presence: true
+
+  has_many(:scripts)
   
   def self.find_by_credentials(name, pass)
     found_user = User.find_by_username(name)

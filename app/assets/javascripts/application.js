@@ -18,7 +18,6 @@
 //= require bootstrap
 //= require monkey_scripts
 //= require serializeJSON
-//= require_tree .
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models
@@ -26,6 +25,8 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree ../templates
+//= require_tree .
+
 
 (function(){
   var MonkeyScripts = window.MonkeyScripts = (window.MonkeyScripts || {});
@@ -33,7 +34,7 @@
   MonkeyScripts.loginFormAttachHandler = function() {
     $('#signup-form,#login-form').on('submit', handleLoginSubmission);
     $('#logout-button').on('click', handleLogOut);
-  }
+  };
   
   var handleLogOut = function(event) {
     $.ajax({
@@ -43,7 +44,7 @@
         location.reload();
       }
     });
-  }
+  };
   
   var handleLoginSubmission = function(event) {
     event.preventDefault();
@@ -58,14 +59,13 @@
         location.reload();
       },
       error: function(response) {
-        console.log(response.responseText);
         $errMsg = $theForm.find('.form-alert');
         $errMsg.addClass('alert alert-danger').text(response.responseText);
       }
     });
-  }
+  };
 })();
 
 $(function(){
   MonkeyScripts.loginFormAttachHandler();
-})
+});
