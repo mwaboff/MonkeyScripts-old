@@ -29,3 +29,4 @@ MonkeyScripts.Views.ScriptNew = Backbone.View.extend({
   }
 
 });
+

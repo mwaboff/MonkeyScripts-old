@@ -16,7 +16,10 @@ class Script < ActiveRecord::Base
   validates :title, presence: true
   validates :user_id, presence: true
 
-  belongs_to(:user)
+  belongs_to(:owner,
+    class_name: "User",
+    primary_key: :id,
+    foreign_key: :user_id)
 
   def isOwner?(aUser)
     user_id == aUser.id

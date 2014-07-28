@@ -13,10 +13,10 @@ module Api
     end
 
     def show
-      found_script = Script.find(params[:id])
+      @found_script = Script.find(params[:id])
 
-      if found_script
-        render json: found_script
+      if @found_script
+        render :show
       else
         render json: "Script not found",
                status: :not_found

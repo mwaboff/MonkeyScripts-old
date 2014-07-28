@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+    <div class="row" id="name-info">
+      <span id="name">
+        <%= thisUser.escape('username') || "Placeholder" %>
+      </span>
+    </div>
+    
+    <div class="row" id="users-scripts"></div>
+  </div>
+  <div class="col-md-2">
+    <h5>User Statistics</h5>
+    <table>
+      <tbody>
+        <tr>
+          <td><b>Author: </b></td>
+          <td><a href="#/profile/<%= thisScript.escape("owner_id") %>">
+              <%= thisScript.get('owner_name') || "Placeholder" %>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

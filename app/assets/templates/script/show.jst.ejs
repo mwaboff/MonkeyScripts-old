@@ -1,11 +1,14 @@
-<div class="row" id="script-info">
+<div class="row">
   <div class="col-md-8 col-md-offset-1">
     <div class="row" id="script-info">
       <span id="script-title">
-        <%= thisScript.escape('title') %>
+        <%= thisScript.escape('title') || "Placeholder" %>
       </span>
       <span id="script-authoring">
-        by <%= thisScript.escape('user_id') %>
+        by 
+        <a href="#/profile/<%= thisScript.escape("owner_id") %>">
+          <%= thisScript.get('owner_name') || "Placeholder" %>
+        </a>
       </span>
     </div>
     <div class="row" id="script-nav">
@@ -32,5 +35,19 @@
 
     <div class="row" id="comments">
     </div>
+  </div>
+  <div class="col-md-2">
+    <h5>Script Info</h5>
+    <table>
+      <tbody>
+        <tr>
+          <td><b>Author: </b></td>
+          <td><a href="#/profile/<%= thisScript.escape("owner_id") %>">
+              <%= thisScript.get('owner_name') || "Placeholder" %>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -11,6 +11,17 @@ module Api
                status: :unprocessable_entity
       end
     end
+
+    def show
+      @found_user = User.find(params[:id])
+
+      if @found_user
+        render :show
+      else
+        render json: "User not found",
+               status: :not_found
+      end
+    end
   
     def update
       if current_user.update(user_params)
