@@ -4,13 +4,18 @@ MonkeyScripts.Views.IndexShow = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.allScripts = options.allScripts;
     this.latestScripts = options.latestScripts;
-    this.listenTo(this.allScripts, "sync", this.render);
+    this.listenTo(this.allScripts, "sync", this.generateSublists);
 
     this.listenTo(this.allScripts, "add", function(theScript){
       this.addScriptTile(theScript, "#all-scripts");
     });
-    this.listenTo(this.latestScripts, "add", function(theScript){
-      this.addScriptTile(theScript, "#latest-scripts");
+  },
+
+  generateSublists: function(allScripts) {
+    var that = this;
+    var latestScripts = allScripts.slice(-6).reverse();
+    _(latestScripts).each(function(aSlice){
+      that.addScriptTile(aSlice, "#latest-scripts");
     });
   },
 

@@ -2,7 +2,9 @@ MonkeyScripts.Collections.Scripts = Backbone.Collection.extend({
   url: "/api/scripts/",
 
   parse: function(response) {
-    var result = {};
+    if (response.scripts) {
+      return response.scripts;
+    }
    
     return response;
   }

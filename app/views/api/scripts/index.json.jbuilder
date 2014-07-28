@@ -1,2 +1,1 @@
-json.allScripts(@all_scripts, :id, :title, :short_desc, :downloads)
-json.latestScripts(@latest_scripts, :id, :title, :short_desc, :downloads)
+json.scripts(@all_scripts, :id, :title, :short_desc, :downloads)
