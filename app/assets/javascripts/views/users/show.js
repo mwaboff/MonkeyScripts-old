@@ -13,6 +13,7 @@ MonkeyScripts.Views.UserShow = MonkeyScripts.Views.ParentShow.extend({
     MonkeyScripts.Views.ParentShow.prototype.initialize.call(this, options);
 
     this.listenTo(this.collection, 'add', this.addScriptTile);
+    this.listenTo(this.collection, 'sync', this.render);
   },
 
   addScriptTile: function(receivedScript) {
@@ -20,6 +21,6 @@ MonkeyScripts.Views.UserShow = MonkeyScripts.Views.ParentShow.extend({
       model: receivedScript
     });
     this.addSubview('#users-scripts', tileView);
-    this.render();
+    //this.render();
   }
 });

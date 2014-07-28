@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724164910) do
+ActiveRecord::Schema.define(version: 20140728184816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140724164910) do
     t.integer  "downloads",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "short_desc",              null: false
   end
 
   add_index "scripts", ["title"], name: "index_scripts_on_title", using: :btree

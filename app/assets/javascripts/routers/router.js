@@ -32,9 +32,11 @@ MonkeyScripts.Routers.Router = Backbone.Router.extend({
         this._swapview(newView);
     },
 
-    renderRoot: function(profileID, frag){
-        // var tempScriptCollection = new MonkeyScripts.Collections.Scripts();
-        // tempScriptCollection.fetch();
+    renderRoot: function(profileID){
+         var tempScriptCollection = new MonkeyScripts.Collections.Scripts();
+         tempScriptCol.fetch();
+         var newView = new MonkeyScripts.Views.IndexShow({allScripts: tempScriptCol});
+         this._swapview(newView);
     },
 
     _swapview: function(newView) {

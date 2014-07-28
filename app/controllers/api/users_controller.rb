@@ -14,6 +14,8 @@ module Api
 
     def show
       @found_user = User.find(params[:id])
+      @total_downloads = @found_user.scripts().sum(:downloads)
+      @total_scripts = @found_user.scripts().count
 
       if @found_user
         render :show

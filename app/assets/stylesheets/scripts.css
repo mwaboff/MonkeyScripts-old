@@ -9,12 +9,12 @@
 
 .script-tile-name {
     align-items: center;
-    font-weight: 600;00;
+    font-weight: 600;
     border-bottom: thin solid rgba(150, 150, 150, 0.3);
 }
 
 .script-tile-description {
-    align-items: center;
+    text-align: center;
     justify-content: center;
     height: 100%;
 }
@@ -22,17 +22,13 @@
 .script-tile {
     box-shadow: 1px 1px 3px #333;
     text-decoration: none;
-    background-color: #490A3D;
+    background-color: #C85E50;
     color: white;
     width: 90%;
     position: relative;
-    /*border: thin black solid;*/
     height: 150px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 0;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
+    margin: 10px auto;
+    padding: 0 3px;
 }
 
 .script-tile:hover {
@@ -41,7 +37,7 @@
 }
 
 .script-tile-overlay {
-    background-color: rgba(255, 150, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
     text-decoration: none;
     position: absolute;
     top: 0;
@@ -54,7 +50,7 @@
 }
 .script-tile-overlay:hover {
     opacity: 1;
-};
+}
 
 #users-scripts {
     margin: 0 auto;

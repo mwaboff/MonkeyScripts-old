@@ -18,6 +18,7 @@
 //= require bootstrap
 //= require monkey_scripts
 //= require serializeJSON
+//= require codemirror
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models

@@ -2,21 +2,32 @@
   <div class="col-md-8 col-md-offset-1">
     <div class="row" id="name-info">
       <span id="name">
-        <%= theModel.escape('username') || "Placeholder" %>
+        <h2><%= theModel.escape('username') || "Placeholder" %></h2>
       </span>
     </div>
     
     <div class="row" id="users-scripts"></div>
   </div>
   <div class="col-md-2">
-    <h5>User Statistics</h5>
+    <h2>About Me</h2>
     <table>
-      <tbody>
+      <tbody class="user-info">
         <tr>
-          <td><b>Author:</b></td>
-          <td><a href="#/profile/<%= theModel.escape("id") %>">
-              <%= theModel.escape('username') || "Placeholder" %>
-            </a>
+          <td><b>Joined Date:</b></td>
+          <td>
+            <%= theModel.escape('joined') || "???" %>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Script Count:</b></td>
+          <td>
+            <%= theModel.escape('total_scripts') || "???" %>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Total Downloads:</b></td>
+          <td>
+            <%= theModel.escape('total_downloads') || "???" %>
           </td>
         </tr>
       </tbody>

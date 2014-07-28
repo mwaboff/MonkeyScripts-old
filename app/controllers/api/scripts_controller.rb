@@ -23,6 +23,11 @@ module Api
       end
     end
 
+    def index
+      @all_scripts = Script.all
+      @latest_scripts = Script.last(6).reverse
+    end
+
     def destroy
     end
 
@@ -31,7 +36,7 @@ module Api
 
     private
     def script_params
-      params.require(:script).permit(:title, :description, :code)
+      params.require(:script).permit(:title, :short_desc, :description, :code)
     end
   end
 end
