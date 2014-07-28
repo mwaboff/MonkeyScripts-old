@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-1">
     <div class="row" id="name-info">
       <span id="name">
-        <%= thisUser.escape('username') || "Placeholder" %>
+        <%= theModel.escape('username') || "Placeholder" %>
       </span>
     </div>
     
@@ -13,9 +13,9 @@
     <table>
       <tbody>
         <tr>
-          <td><b>Author: </b></td>
-          <td><a href="#/profile/<%= thisScript.escape("owner_id") %>">
-              <%= thisScript.get('owner_name') || "Placeholder" %>
+          <td><b>Author:</b></td>
+          <td><a href="#/profile/<%= theModel.escape("id") %>">
+              <%= theModel.escape('username') || "Placeholder" %>
             </a>
           </td>
         </tr>

@@ -2,29 +2,29 @@
   <div class="col-md-8 col-md-offset-1">
     <div class="row" id="script-info">
       <span id="script-title">
-        <%= thisScript.escape('title') || "Placeholder" %>
+        <%= theModel.escape('title') || "Placeholder" %>
       </span>
       <span id="script-authoring">
         by 
-        <a href="#/profile/<%= thisScript.escape("owner_id") %>">
-          <%= thisScript.get('owner_name') || "Placeholder" %>
+        <a href="#/profile/<%= theModel.escape("owner_id") %>">
+          <%= theModel.get('owner_name') || "Placeholder" %>
         </a>
       </span>
     </div>
     <div class="row" id="script-nav">
       <ul class="script-nav nav navbar-nav">
         <li class="active">
-          <a class="script-link" href="#/script/<%= thisScript.id %>">
+          <a class="script-link" href="#/script/<%= theModel.id %>">
             About
           </a>
         </li>
         <li>
-          <a class="script-link" href="#/script/<%= thisScript.id %>/source">
+          <a class="script-link" href="#/script/<%= theModel.id %>/source">
             Source
           </a>
         </li>
         <li>
-          <a href="/install/<%= thisScript.id %>.user.js" target="_blank">
+          <a href="/install/<%= theModel.id %>.user.js" target="_blank">
             Download
           </a>
         </li>
@@ -42,8 +42,8 @@
       <tbody>
         <tr>
           <td><b>Author: </b></td>
-          <td><a href="#/profile/<%= thisScript.escape("owner_id") %>">
-              <%= thisScript.get('owner_name') || "Placeholder" %>
+          <td><a href="#/profile/<%= theModel.escape("owner_id") %>">
+              <%= theModel.get('owner_name') || "Placeholder" %>
             </a>
           </td>
         </tr>

@@ -9,6 +9,8 @@ MonkeyScripts.Views.ScriptShow = MonkeyScripts.Views.ParentShow.extend({
       'default': MonkeyScripts.Views.ScriptShowDescription
     };
 
+    this.modelName = "script";
+
     MonkeyScripts.Views.ParentShow.prototype.initialize.call(this, options);
   }
 });

@@ -11,6 +11,7 @@ MonkeyScripts.Views.ParentShow = Backbone.CompositeView.extend({
     } else {
       this.fragment = options.frag;
     }
+    
     this.listenTo(this.model, "sync", this.addSubviewsOnFragment);
   },
 
@@ -29,7 +30,7 @@ MonkeyScripts.Views.ParentShow = Backbone.CompositeView.extend({
   viewChange: function(event) {
     event.preventDefault();
     var newLocation = $(event.target).attr('href');
-    var splitPoint = 'script/'+this.model.id+'/';
+    var splitPoint = this.modelName+'/'+this.model.id+'/';
     this.fragment = newLocation.split(splitPoint)[1];
     
     // Set url bar without loading a new page (HTML5 only)
@@ -40,7 +41,8 @@ MonkeyScripts.Views.ParentShow = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var compiledTemplate = this.template({thisScript: this.model});
+    console.log('rendering');
+    var compiledTemplate = this.template({theModel: this.model});
     this.$el.html(compiledTemplate);
     this.attachSubviews();
     return this;
