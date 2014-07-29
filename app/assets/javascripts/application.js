@@ -18,8 +18,9 @@
 //= require bootstrap
 //= require monkey_scripts
 //= require serializeJSON
+
 //= require codemirror
-//= require codemirror/modes/javascript
+
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models
@@ -33,9 +34,10 @@
 (function(){
   var MonkeyScripts = window.MonkeyScripts = (window.MonkeyScripts || {});
   
-  MonkeyScripts.loginFormAttachHandler = function() {
+  MonkeyScripts.attachHandlers = function() {
     $('#signup-form,#login-form').on('submit', handleLoginSubmission);
     $('#logout-button').on('click', handleLogOut);
+    $('#search-button').on('click', clickSearchButton);
   };
   
   var handleLogOut = function(event) {
@@ -66,8 +68,25 @@
       }
     });
   };
+
+  var clickSearchButton = function(event) {
+    event.preventDefault();
+    $('.monkey-search-wrapper').toggleClass('expanded-monkey-search');
+
+
+    var expandedSearchBar = $('.expanded-monkey-search .monkey-search');
+    if (expandedSearchBar) {
+      expandedSearchBar.focus();
+      expandedSearchBar.on('keyup', _.throttle(liveSearch, 200));
+    }
+  };
+
+  var liveSearch = function(event) {
+    console.log(event.target.value);
+  };
 })();
 
 $(function(){
-  MonkeyScripts.loginFormAttachHandler();
+  MonkeyScripts.attachHandlers();
+
 });

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728184816) do
+ActiveRecord::Schema.define(version: 20140729221036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,24 @@ ActiveRecord::Schema.define(version: 20140728184816) do
 
   add_index "scripts", ["title"], name: "index_scripts_on_title", using: :btree
   add_index "scripts", ["user_id"], name: "index_scripts_on_user_id", using: :btree
+
+  create_table "tag_joins", force: true do |t|
+    t.integer  "script_id",  null: false
+    t.integer  "tag_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tag_joins", ["script_id"], name: "index_tag_joins_on_script_id", using: :btree
+  add_index "tag_joins", ["tag_id"], name: "index_tag_joins_on_tag_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "tag_name",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["tag_name"], name: "index_tags_on_tag_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",          null: false

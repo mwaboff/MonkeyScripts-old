@@ -1,0 +1,33 @@
+<div class="row" id="script-edit">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Edit Script</h2>
+    <form action="/api/scripts" id="edit-script" method="POST">
+      <div class="form-alert"></div>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text"
+          class="form-control"
+          id="title"
+          name="script[title]"
+          value="<%= thisScript.escape('title') %>">
+      </div>
+      <div class="form-group">
+        <label for="short-desc">Short Description:</label>
+        <textarea class="form-control"
+          id="short-desc"
+          name="script[short_desc]"><%= thisScript.escape('short_desc') %></textarea>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control"
+          id="description"
+          name="script[description]"><%= thisScript.escape('description') %></textarea>
+      </div>
+      <div class="form-group">
+        <label for="code">Code:</label>
+        <textarea id="monkey-source" name="script[code]"></textarea>
+      </div>
+      <input type="submit" class="btn btn-primary" id="submit-script" value="Save">
+    </form>
+  </div>
+</div>

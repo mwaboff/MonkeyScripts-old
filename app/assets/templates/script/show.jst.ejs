@@ -28,6 +28,13 @@
             Download
           </a>
         </li>
+        <% if (window.current_user_id === theModel.get('owner_id')) { %>
+          <li>
+            <a href="#/script/<%= theModel.id %>/edit">
+              Edit
+            </a>
+          </li>
+        <% } %>
       </ul>
     </div>
     

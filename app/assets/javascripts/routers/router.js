@@ -1,6 +1,7 @@
 MonkeyScripts.Routers.Router = Backbone.Router.extend({
   routes: {
     "script/new": "renderScriptCreate",
+    "script/:id/edit": "renderScriptEdit",
     "script/:id(/:frag)": "renderScriptShow",
     "profile/:id(/:frag)": "renderUserProfile",
     "": "renderRoot"
@@ -13,8 +14,17 @@ MonkeyScripts.Routers.Router = Backbone.Router.extend({
   renderScriptShow: function(scriptID, frag) {
     var tempScript = new MonkeyScripts.Models.Script({id: scriptID});
     tempScript.fetch();
-    var newView = new MonkeyScripts.Views.ScriptShow({model: tempScript,
-                              frag: frag});
+    var newView = new MonkeyScripts.Views.ScriptShow({
+      model: tempScript,
+      frag: frag
+    });
+    this._swapview(newView);
+  },
+
+  renderScriptEdit: function(scriptID) {
+    var tempScript = new MonkeyScripts.Models.Script({id: scriptID});
+    tempScript.fetch();
+    var newView = new MonkeyScripts.Views.ScriptEdit({model: tempScript});
     this._swapview(newView);
   },
 
@@ -35,8 +45,10 @@ MonkeyScripts.Routers.Router = Backbone.Router.extend({
   renderRoot: function(profileID){
      var tempScriptCollection = new MonkeyScripts.Collections.Scripts();
      tempScriptCollection.fetch();
-     var newView = new MonkeyScripts.Views.IndexShow({allScripts: tempScriptCollection});
-     this._swapview(newView);
+     var newView = new MonkeyScripts.Views.IndexShow({
+      allScripts: tempScriptCollection
+    });
+    this._swapview(newView);
   },
 
   _swapview: function(newView) {

@@ -18,3 +18,20 @@
 @import "bootstrap";
 @import "font-awesome";
 
+ul.nav > li.monkey-search-wrapper {
+  padding-top: 11.5px;
+  width: 0px;
+  opacity: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+ul.nav > li.expanded-monkey-search {
+  display: block;
+  opacity: 1;
+  width: 500px;
+}
+
+.monkey-search {
+  width: 100%;
+}
