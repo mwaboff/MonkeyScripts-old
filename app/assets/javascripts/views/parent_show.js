@@ -34,7 +34,7 @@ MonkeyScripts.Views.ParentShow = Backbone.CompositeView.extend({
     this.fragment = newLocation.split(splitPoint)[1];
     
     // Set url bar without loading a new page (HTML5 only)
-    var stateObj = {'MonkeyScripts_showLocation':newLocation};
+    var stateObj = {'MonkeyScripts_showLocation': newLocation};
     history.pushState(stateObj, "", newLocation);
 
     this.addSubviewsOnFragment();
@@ -45,6 +45,7 @@ MonkeyScripts.Views.ParentShow = Backbone.CompositeView.extend({
     var compiledTemplate = this.template({theModel: this.model});
     this.$el.html(compiledTemplate);
     this.attachSubviews();
+
     return this;
   }
 });
