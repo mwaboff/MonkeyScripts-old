@@ -9,15 +9,15 @@ MonkeyScripts.Views.ScriptEdit = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
-  contentMirrorizor: function() {
-    if (this.$el.find('#monkey-source').length) {
-      var that = this;
-      this._cm = CodeMirror.fromTextArea(that.$el.find('#monkey-source')[0], {
+  contentMirrorizor: function($monkeyCode) {
+    var foundTextarea = this.$el.find('#monkey-source');
+    if (typeof(this.model.get('code')) !== "undefined") {
+      this._cm = CodeMirror.fromTextArea(foundTextarea[0], {
         lineNumbers: true,
         mode: 'javascript',
         lineWrapping: true
       });
-      this._cm.setValue(this.model.escape('code'));
+      this._cm.setValue(this.model.get('code'));
       this._cm.refresh();
     }
   },

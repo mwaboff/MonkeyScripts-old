@@ -17,7 +17,6 @@
             <input class="monkey-search" type="text"></input>
           </li>
           <li>
-            <!-- Better way than javascript:void(0); ? -->
             <a id="search-button" href title="Search">
               <span class="glyphicon glyphicon-search"></span>
             </a>
@@ -45,7 +44,7 @@
                 <li>
                   <%= link_to "My Profile", "#/profile/"+current_user.id.to_s -%>
                 </li>
-                <li><a href="#" id="logout-button">Log Out</a></li>
+                <li><a href id="logout-button">Log Out</a></li>
               </ul>
             </li>
           <% end %>

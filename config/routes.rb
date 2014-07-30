@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :scripts
   end
 
-  get "/install/:id.user.js", to: "pages#install_script"
+  get "/install/:id.user.:format", to: "pages#install_script"
 
   
 end

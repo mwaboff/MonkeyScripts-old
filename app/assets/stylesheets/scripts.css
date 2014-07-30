@@ -31,19 +31,23 @@
     padding: 0 3px;
 }
 
+.script-tile-wrapper:nth-of-type(2n) .script-tile {
+    background-color: #C87850;
+}
+
 .script-tile:hover {
     color: white;
     text-decoration: none;
 }
 
 .script-tile-overlay {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
     text-decoration: none;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;  
+    bottom: 0;
     opacity: 0;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;

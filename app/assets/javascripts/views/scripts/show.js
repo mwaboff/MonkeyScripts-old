@@ -15,7 +15,8 @@ MonkeyScripts.Views.ScriptShow = MonkeyScripts.Views.ParentShow.extend({
   },
 
   contentMirrorizor: function() {
-    if (this.$el.find('#monkey-source').length) {
+    if (typeof(this.model.get('code')) !== "undefined" && 
+        this.$el.find('#monkey-source').length) {
       var that = this;
       this._cm = CodeMirror.fromTextArea(that.$el.find('#monkey-source')[0], {
         lineNumbers: true,
@@ -36,6 +37,7 @@ MonkeyScripts.Views.ScriptShow = MonkeyScripts.Views.ParentShow.extend({
     this.attachSubviews();
 
     this.contentMirrorizor();
+
     return this;
   }
 });

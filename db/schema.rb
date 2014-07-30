@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729221036) do
+ActiveRecord::Schema.define(version: 20140730000703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140729221036) do
     t.integer  "tag_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "value"
   end
 
   add_index "tag_joins", ["script_id"], name: "index_tag_joins_on_script_id", using: :btree

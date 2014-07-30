@@ -10,11 +10,17 @@
 #  downloads   :integer          default(0)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  short_desc  :text             not null
 #
 
 class Script < ActiveRecord::Base
   validates :title, presence: true
   validates :user_id, presence: true
+
+  has_many(:tag_joins)
+  has_many(:tags,
+    through: :tag_joins,
+    source: :tag)
 
   belongs_to(:owner,
     class_name: "User",

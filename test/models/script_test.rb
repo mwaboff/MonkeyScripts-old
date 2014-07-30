@@ -10,6 +10,7 @@
 #  downloads   :integer          default(0)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  short_desc  :text             not null
 #
 
 require 'test_helper'
