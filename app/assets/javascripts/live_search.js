@@ -15,12 +15,28 @@
   };
 
   var parseResults = function(response) {
-    console.log('Success!');
-    console.log(response);
+    addSearchResults(response);
   };
   
   var reportError = function(response) {
-    console.log('Error!');
-    console.log(response.responseText);
   };
+
+  var addSearchResults = function(results) {
+    var script, frag;
+    // if (!results[0].title) {
+    //   return;
+    // }
+    var $documentFragment = $(document.createDocumentFragment());
+    for (var idx in results) {
+      script = results[idx];
+      frag = "<a href='#/script/"+script.id+"'> \
+              <div class='result'> \
+              <div class='result-title'>"+script.title+"</div> \
+              <div class='result-short-desc'>"+script.short_desc+"</div></div></a>";
+      if (script.id) {
+        $documentFragment.append(frag);
+      }
+    }
+    $('.monkey-search-wrapper > #live-results').html($documentFragment);
+    };
 })();

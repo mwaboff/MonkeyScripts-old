@@ -1,10 +1,11 @@
 module Api
   class SearchsController < ApplicationController
+    SEARCH_DEPTH = 3
 
     def search
       query = URI.unescape(params[:term])
-      if query.length >= 3
-        result = run_search(query)
+      if query.length >= SEARCH_DEPTH
+        result = run_search(query, SEARCH_DEPTH)
         render json: result
       else
         render nothing: true
@@ -12,8 +13,8 @@ module Api
     end
 
     private
-    def run_search(search_string)
-      fuzzed_search = fuzzify(search_string, 3)
+    def run_search(search_string, depth)
+      fuzzed_search = fuzzify(search_string, depth)
       sql_string = generate_sql(fuzzed_search)
       search_results = search_db(sql_string, fuzzed_search)
       return search_results

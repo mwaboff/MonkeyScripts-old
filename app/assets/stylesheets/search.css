@@ -1,0 +1,32 @@
+#live-results {
+    position: absolute;
+
+}
+#live-results .result {
+    position: relative;
+    border-right: thin solid gray;
+    border-left: thin solid gray;
+    border-bottom: thin solid gray;
+    background-color: white;
+    height: 50px;
+    width: 500px;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 10;
+}
+
+#live-results .results * {
+    text-decoration: none;
+}
+
+#live-results .result:hover {
+    background-color: #CCC;
+}
+
+.result-short-desc {
+    text-overflow: ellipsis;
+}
+

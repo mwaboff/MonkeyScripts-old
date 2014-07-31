@@ -39,6 +39,10 @@
     $('#signup-form,#login-form').on('submit', handleLoginSubmission);
     $('#logout-button').on('click', handleLogOut);
     $('#search-button').on('click', clickSearchButton);
+    $('.nav.navbar-nav').on('keyup',
+                            '.monkey-search-wrapper.expanded-monkey-search',
+                            _.throttle(MonkeyScripts.liveSearch, 200));
+    //$('.monkey-search-wrapper').on('blur', clickSearchButton);
   };
   
   var handleLogOut = function(event) {
@@ -72,21 +76,18 @@
 
   var clickSearchButton = function(event) {
     event.preventDefault();
-    console.log("RUNNING");
     var $barWrapper = $('.monkey-search-wrapper');
-    var $searchBar = $($barWrapper.find('.monkey-search'));
+    var $searchResults = $barWrapper.find('#live-results');
+    var $searchBar = $barWrapper.find('.monkey-search');
+
+    $barWrapper.toggleClass('expanded-monkey-search');
+
     if ($barWrapper.hasClass('expanded-monkey-search')) {
-      $barWrapper.removeClass('expanded-monkey-search');
-      $searchBar.off('keyup blur');
-    } else {
-      $barWrapper.addClass('expanded-monkey-search');
       $searchBar.focus();
-      $searchBar.on('keyup', _.throttle(MonkeyScripts.liveSearch, 200));
-      $searchBar.on('blur', function(){
-        console.log('BLURRED');
-        $searchBar.off('keyup blur');
-        $barWrapper.removeClass('expanded-monkey-search');
-      });
+    } else {
+      console.log('removing search stuff');
+      $searchResults.html('');
+      $searchBar.val('');
     }
   };
 })();
