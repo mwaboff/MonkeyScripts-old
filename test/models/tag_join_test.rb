@@ -7,6 +7,7 @@
 #  tag_id     :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
+#  value      :integer
 #
 
 require 'test_helper'

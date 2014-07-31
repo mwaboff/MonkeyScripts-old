@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
 
   has_many(:scripts)
   
-  def self.find_by_credentials(name, pass)
-    found_user = User.find_by_username(name)
+  def self.find_by_credentials(my_email, pass)
+    found_user = User.find_by_email(my_email)
     if found_user
       found_user = nil unless found_user.is_password?(pass)
     end

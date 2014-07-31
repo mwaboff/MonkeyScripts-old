@@ -4,13 +4,13 @@
 #
 #  id          :integer          not null, primary key
 #  title       :string(255)      not null
-#  user_id     :string(255)      not null
 #  description :text
 #  code        :text
 #  downloads   :integer          default(0)
 #  created_at  :datetime
 #  updated_at  :datetime
 #  short_desc  :text             not null
+#  user_id     :integer          not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

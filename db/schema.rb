@@ -11,24 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730000703) do
+ActiveRecord::Schema.define(version: 20140730184759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "scripts", force: true do |t|
     t.string   "title",                   null: false
-    t.string   "user_id",                 null: false
     t.text     "description"
     t.text     "code"
     t.integer  "downloads",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "short_desc",              null: false
+    t.integer  "user_id",                 null: false
   end
 
   add_index "scripts", ["title"], name: "index_scripts_on_title", using: :btree
-  add_index "scripts", ["user_id"], name: "index_scripts_on_user_id", using: :btree
 
   create_table "tag_joins", force: true do |t|
     t.integer  "script_id",  null: false

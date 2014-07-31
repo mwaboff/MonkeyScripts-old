@@ -8,9 +8,9 @@
 }
 
 .script-tile-name {
+    text-align: center;
     align-items: center;
-    font-weight: 600;
-    border-bottom: thin solid rgba(150, 150, 150, 0.3);
+    font-size: 20px;
 }
 
 .script-tile-description {
@@ -20,7 +20,6 @@
 }
 
 .script-tile {
-    box-shadow: 1px 1px 3px #333;
     text-decoration: none;
     background-color: #C85E50;
     color: white;
@@ -28,7 +27,7 @@
     position: relative;
     height: 150px;
     margin: 10px auto;
-    padding: 0 3px;
+    padding: 7px;
 }
 
 .script-tile-wrapper:nth-of-type(2n) .script-tile {

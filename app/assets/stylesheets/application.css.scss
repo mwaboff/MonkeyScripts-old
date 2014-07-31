@@ -18,6 +18,9 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body * {
+    /*border: thin solid blue;*/
+}
 ul.nav > li.monkey-search-wrapper {
   padding-top: 11.5px;
   width: 0px;

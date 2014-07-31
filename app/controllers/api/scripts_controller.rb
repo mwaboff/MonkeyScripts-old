@@ -7,6 +7,7 @@ module Api
       baby_script.user_id = current_user.id
 
       if baby_script.save
+        baby_script.build_tags!
         render json: baby_script
       else
         render json: baby_script.errors.full_messages,
@@ -35,12 +36,13 @@ module Api
     end
 
     def update
-      @found_script ||= Script.find(params[:id])
+      found_script ||= Script.find(params[:id])
 
-      if @found_script.update(script_params)
-        render json: @found_script
+      if found_script.update(script_params)
+        found_script.build_tags!
+        render json: found_script
       else
-        render @found_script.errors.full_message,
+        render found_script.errors.full_message,
         status: :unprocessable_entity
       end
     end
@@ -52,7 +54,7 @@ module Api
 
     def correct_user
       @found_script = Script.find(params[:id])
-      unless @found_script.user_id.to_i == current_user.id
+      unless @found_script.isOwner?(current_user)
         flash[:errors] = "This is not your script to edit!"
         render json: flash[:errors],
                status: :unauthorized

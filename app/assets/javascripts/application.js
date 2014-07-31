@@ -72,22 +72,25 @@
 
   var clickSearchButton = function(event) {
     event.preventDefault();
-    $('.monkey-search-wrapper').toggleClass('expanded-monkey-search');
-
-
-    var expandedSearchBar = $('.expanded-monkey-search .monkey-search');
-    if (expandedSearchBar) {
-      expandedSearchBar.focus();
-      expandedSearchBar.on('keyup', _.throttle(liveSearch, 200));
+    console.log("RUNNING");
+    var $barWrapper = $('.monkey-search-wrapper');
+    var $searchBar = $($barWrapper.find('.monkey-search'));
+    if ($barWrapper.hasClass('expanded-monkey-search')) {
+      $barWrapper.removeClass('expanded-monkey-search');
+      $searchBar.off('keyup blur');
+    } else {
+      $barWrapper.addClass('expanded-monkey-search');
+      $searchBar.focus();
+      $searchBar.on('keyup', _.throttle(MonkeyScripts.liveSearch, 200));
+      $searchBar.on('blur', function(){
+        console.log('BLURRED');
+        $searchBar.off('keyup blur');
+        $barWrapper.removeClass('expanded-monkey-search');
+      });
     }
-  };
-
-  var liveSearch = function(event) {
-    console.log(event.target.value);
   };
 })();
 
 $(function(){
   MonkeyScripts.attachHandlers();
-
 });
