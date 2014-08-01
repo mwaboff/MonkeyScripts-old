@@ -15,7 +15,9 @@
     <%= render partial: "layouts/header" %>
   </div>
   <div class="container">
-    <%= render partial: "layouts/welcome_banner" %>
+    <% unless cookies["_MonkeyScripts_welcomewindow"] == "0" %>
+      <%= render partial: "layouts/welcome_banner" %>
+    <% end %>
     <%= yield %>
   </div>
 </body>

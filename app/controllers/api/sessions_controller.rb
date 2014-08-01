@@ -10,6 +10,16 @@ module Api
         render json: "Email or Password is incorrect.", status: :unprocessable_entity
       end
     end
+
+    def create_guest_session
+      attempted_user = User.find_by_credentials("guest", "guestguest");
+      if attempted_user
+        login!(attempted_user)
+        render json: attempted_user
+      else
+        render json: "Email or Password is incorrect.", status: :unprocessable_entity
+      end
+    end
   
     def destroy
       logout!

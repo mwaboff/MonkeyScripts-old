@@ -10,11 +10,13 @@ class PagesController < ApplicationController
     if @chosen_script
       respond_to do |format|
         format.js do
+          @chosen_script.downloads += 1
+          @chosen_script.save!
           render :install
         end
       end
     else
-      render json: "not found", status: :not_found
+      render nothing: true, status: :not_found
     end
   end
 end

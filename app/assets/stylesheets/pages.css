@@ -1,0 +1,7 @@
+.section-title > h2 {
+    /*padding-left: 10%;*/
+}
+
+.script-index-row:not(:first-child) {
+    margin-top: 15px;
+}

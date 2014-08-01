@@ -23,9 +23,6 @@
 
   var addSearchResults = function(results) {
     var script, frag;
-    // if (!results[0].title) {
-    //   return;
-    // }
     var $documentFragment = $(document.createDocumentFragment());
     for (var idx in results) {
       script = results[idx];
@@ -38,5 +35,6 @@
       }
     }
     $('.monkey-search-wrapper > #live-results').html($documentFragment);
-    };
+  };
+
 })();

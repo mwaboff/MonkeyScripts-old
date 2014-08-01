@@ -12,7 +12,7 @@ MonkeyScripts.Views.ScriptNew = Backbone.View.extend({
 
   submit: function(event) {
     event.preventDefault();
-
+    var $theForm = $(event.target);
     var formData = $(event.target).serializeJSON();
     var newScript = new MonkeyScripts.Models.Script(formData['script']);
 
@@ -21,9 +21,9 @@ MonkeyScripts.Views.ScriptNew = Backbone.View.extend({
         console.log(response);
         Backbone.history.navigate("#/script/"+response.id);
       },
-      error: function(response) {
+      error: function(response, error) {
         $errMsg = $theForm.find('.form-alert');
-        $errMsg.addClass('alert alert-danger').text(response.responseText);
+        $errMsg.addClass('alert alert-danger').text(error.responseText);
       }
     });
   }

@@ -6,11 +6,12 @@ MonkeyScripts.Views.ParentShow = Backbone.CompositeView.extend({
   },
 
   initialize: function(options) {
-    if (options.frag) {
-      this.fragment = "/"+options.frag;
-    } else {
-      this.fragment = options.frag;
-    }
+    this.fragment = options.frag;
+    // if (options.frag) {
+    //   this.fragment = ""+options.frag;
+    // } else {
+    //   this.fragment = options.frag;
+    // }
     
     this.listenTo(this.model, "sync", this.addSubviewsOnFragment);
   },
@@ -40,8 +41,18 @@ MonkeyScripts.Views.ParentShow = Backbone.CompositeView.extend({
     this.addSubviewsOnFragment();
   },
 
+  activateTab: function() {
+    $('.active').removeClass('active');
+    var $allTabs = $('.script-link');
+    var $tab = $allTabs.find('a[href*="'+this.fragment+'"]');
+    if ($tab.length) {
+      $tab.addClass('active');
+    } else {
+      $allTabs.find('a').first().addClass('active');
+    }
+  },
+
   render: function() {
-    console.log('rendering');
     var compiledTemplate = this.template({theModel: this.model});
     this.$el.html(compiledTemplate);
     this.attachSubviews();

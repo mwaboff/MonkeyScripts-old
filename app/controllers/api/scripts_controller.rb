@@ -29,7 +29,7 @@ module Api
 
     def index
       @all_scripts = Script.all
-      @latest_scripts = Script.last(6).reverse
+      @latest_scripts = Script.last(6)
     end
 
     def destroy

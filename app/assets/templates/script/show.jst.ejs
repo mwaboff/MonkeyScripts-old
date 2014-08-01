@@ -1,25 +1,21 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-1">
     <div class="row" id="script-info">
-      <span id="script-title">
-        <h2><%= theModel.escape('title') || "Placeholder" %></h2>
-      </span>
+      <div id="script-title">
+        <h2><%= theModel.escape('title') || "?" %></h2>
+      </div>
       <span id="script-authoring">
-        by 
-        <a href="#/profile/<%= theModel.escape("owner_id") %>">
-          <%= theModel.get('owner_name') || "Placeholder" %>
-        </a>
       </span>
     </div>
     <div class="row" id="script-nav">
       <ul class="script-nav nav navbar-nav">
-        <li class="active">
-          <a class="script-link" href="#/script/<%= theModel.id %>">
+        <li class="script-link">
+          <a href="#/script/<%= theModel.id %>">
             About
           </a>
         </li>
-        <li>
-          <a class="script-link" href="#/script/<%= theModel.id %>/source">
+        <li class="script-link">
+          <a href="#/script/<%= theModel.id %>/source">
             Source
           </a>
         </li>
@@ -27,7 +23,7 @@
           <a href="/install/<%= theModel.id %>.user.js">
             Download
           </a>
-        </li>
+        </li class="script-link">
         <% if (window.current_user_id === theModel.get('owner_id')) { %>
           <li>
             <a href="#/script/<%= theModel.id %>/edit">
@@ -40,18 +36,37 @@
     
     <div class="row" id="script-stuff"></div>
 
-    <div class="row" id="comments">
-    </div>
   </div>
-  <div class="col-md-2">
-    <h2>Script Info</h2>
-    <table>
+  <div class="col-md-3">
+    <div id="script-info-title">
+      <h2>Script Info</h2>
+    </div>
+    <table class="script-info">
       <tbody>
         <tr>
-          <td><b>Author: </b></td>
-          <td><a href="#/profile/<%= theModel.escape("owner_id") %>">
-              <%= theModel.get('owner_name') || "Placeholder" %>
+          <td><b>Author</b></td>
+          <td>
+            <a href="#/profile/<%= theModel.escape("owner_id") %>">
+              <%= theModel.get('owner_name') || "?" %>
             </a>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Downloads</b></td>
+          <td>
+            <%= theModel.escape('downloads') %>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Last Updated</b></td>
+          <td>
+            <%= theModel.escape('updated_at').split('T')[0] %>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Created</b></td>
+          <td>
+            <%= theModel.escape('created_at').split('T')[0] %>
           </td>
         </tr>
       </tbody>

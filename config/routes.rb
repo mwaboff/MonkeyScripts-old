@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :show]
     resource :session, only: [:create, :destroy]
     resources :scripts
+    get "/session/guestlogin", to: "sessions#create_guest_session"
     get "/search", to: "searchs#search"
   end
 

@@ -30,13 +30,14 @@ MonkeyScripts.Views.ScriptShow = MonkeyScripts.Views.ParentShow.extend({
   },
 
   render: function() {
-    console.log('renderbuddy');
     var that = this;
+
     var compiledTemplate = this.template({theModel: this.model});
     this.$el.html(compiledTemplate);
     this.attachSubviews();
 
     this.contentMirrorizor();
+    this.activateTab();
 
     return this;
   }

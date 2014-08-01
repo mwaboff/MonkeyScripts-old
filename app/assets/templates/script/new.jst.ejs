@@ -4,7 +4,7 @@
     <form action="/api/scripts" id="new-script" method="POST">
       <div class="form-alert"></div>
       <div class="form-group">
-        <label for="title">Title:</label>
+        <label for="title">Title</label>
         <input type="text"
                class="form-control"
                id="title"
@@ -12,20 +12,25 @@
                placeholder="My First Script">
       </div>
       <div class="form-group">
-        <label for="short-desc">Short Description:</label>
-        <textarea class="form-control"
+        <label for="short-desc">Short Description</label>
+        <div class="short-desc-char-count pull-right">140</div>
+        <input    type="text"
+                  class="form-control"
                   id="short-desc"
                   name="script[short_desc]"
-                  placeholder="A brief eye-catching description."></textarea>
+                  placeholder="90 charactors are all you have, write something descriptive!">
+      </div>
       <div class="form-group">
-        <label for="description">Description:</label>
+        <label for="description">Description</label>
+        <a href="http://en.wikipedia.org/wiki/Markdown" class="pull-right">markdown available</a>
         <textarea class="form-control"
                   id="description"
+                  rows="6"
                   name="script[description]"
                   placeholder="Explain how your script works. Include any installation and usage instructions."></textarea>
       </div>
       <div class="form-group">
-        <label for="code">Code:</label>
+        <label for="code">Code</label>
         <textarea class="form-control monkey-code"
                   id="code"
                   name="script[code]"

@@ -35,7 +35,6 @@ module Api
         where_sql.push("tags.tag_name LIKE ?")
       end
 
-      #where_sql = ["tags.tag_name LIKE '%hac%'", "tags.tag_name LIKE '%ack%'"]
       sql_search = <<-SQL
       SELECT
         scripts.id,

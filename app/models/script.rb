@@ -16,6 +16,7 @@ class Script < ActiveRecord::Base
   validates :title, presence: true
   validates :user_id, presence: true
   validates :code, presence: true
+  validates :short_desc, length: { maximum: 140, allow_nil: true }
 
   has_many(:tag_joins)
   has_many(:tags,
@@ -27,7 +28,7 @@ class Script < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :user_id)
 
-  PREPOSITIONS = ["and", "as", "at", "but", "by", "for", "in", "into", "like", "of", "off", "on", "onto", "per", "to", "up", "via", "with", "within"]
+  PREPOSITIONS = ["and", "as", "at", "but", "by", "for", "in", "into", "like", "more", "of", "off", "on", "onto", "per", "to", "up", "via", "with", "within"]
 
   def isOwner?(aUser)
     user_id == aUser.id
