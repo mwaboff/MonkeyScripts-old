@@ -6,6 +6,7 @@
     $('#guest-login').on('click', handleGuestLoginSubmission);
     $('#logout-button').on('click', handleLogOut);
     $('#search-button').on('click', clickSearchButton);
+    $('#question-button').on('click', clickQuestionButton);
     $('.nav.navbar-nav').on('keyup',
                             '.monkey-search-wrapper.expanded-monkey-search',
                             _.throttle(MonkeyScripts.liveSearch, 200));

@@ -8,3 +8,5 @@
 
 
 # User.create("")
+
+User.create(username: "Guest", email: "guest", password: "guestguest");

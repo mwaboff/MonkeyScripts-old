@@ -22,6 +22,12 @@
               <span class="glyphicon glyphicon-search"></span>
             </a>
           </li>
+          <li>
+            <a id="question-button" href title="What is all of this?"
+               data-toggle="modal" data-target="#info-modal">
+              <span class="glyphicon glyphicon-question-sign"></span>
+            </a>
+          </li>
           <% unless current_user %>
             <li>
               <a href data-toggle="modal" data-target="#login-modal">Login</a>
@@ -59,3 +65,4 @@
 </nav>
 
 <%= render partial: "layouts/login_modals" %>
+<%= render partial: "layouts/info_modal" %>

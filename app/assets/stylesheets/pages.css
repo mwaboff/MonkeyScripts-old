@@ -5,3 +5,7 @@
 .script-index-row:not(:first-child) {
     margin-top: 15px;
 }
+
+.info-browser-links {
+    text-align: center;
+}

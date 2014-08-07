@@ -1,0 +1,47 @@
+<div class="modal fade" id="info-modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;<span class="sr-only">Close</span></button>
+        <h4 class="modal-title">What are Userscripts and how do you use them?</hr>
+      </div>
+      
+      <div class="modal-body">
+        <div class="row info-about">
+          <h3>What are userscripts?</h3>
+          <p>Userscripts are cross-browser scripts that extend browser and website functionality. Examples can range anywhere from changing the design of your favorite website to automating processes. Userscripts are light-weight browser extensions you can add and edit on the fly.</p>
+        </div>
+        <div class="row info-download">
+          <h3>How do I use them?</h3>
+          <p>First you must install your browser's userscript manager. Click on the icon below that corresponds with the browser you use.</p>
+
+          <div class="info-browser-links">
+            <div class="row">
+              <div class="col-md-4">
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/"
+                   target="_blank">
+                  <img src="<%= image_path("firefox-128.png") %>"/>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en"
+                   target="_blank">
+                  <img src="<%= image_path("chrome-128.png") %>"/>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="https://addons.opera.com/en/extensions/details/tampermonkey-beta/?display=en"
+                   target="_blank">
+                  <img src="<%= image_path("opera-128.png") %>"/>
+                </a>
+              </div>
+            </div>
+            <i>Unfortunately there are no stable userscript managers for IE or Safari at this time.</i>
+          </div>
+          
+          <p>Once you have installed the manager, find the userscript you want and select the Download option. The manager will take care of the rest!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
