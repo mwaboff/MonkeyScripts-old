@@ -16,7 +16,6 @@
 //= require jquery.cookie
 //= require underscore
 //= require backbone
-//= require ./utils/backbone_trigger_logger
 //= require marked
 //= require bootstrap
 //= require monkey_scripts
